@@ -1,0 +1,17 @@
+<hr class="m-3">
+
+<h2 class="m-3">Listado clientes</h2>
+<table class="table m-3">
+    <tr>
+        <th>Nombre</th>
+        <th>CIF</th>
+        <th>Dirección</th>
+        <th>Grupo</th>
+    </tr>
+    <tr *ngFor="let cliente of data">
+        <td>{{cliente.nombre}}</td>
+        <td>{{cliente.CIF}}</td>
+        <td>{{cliente.direccion}}</td>
+        <td>{{cliente.grupo}}</td>
+    </tr>
+</table>

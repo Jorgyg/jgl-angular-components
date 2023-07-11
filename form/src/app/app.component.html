@@ -1,0 +1,36 @@
+<div class="container mt-5">
+<h2>Formulario de Contacto</h2>
+  <div class="form-group">
+    <div class="d-flex">
+      <label for="nombre">Nombre: </label>
+      <input type="text" class="form-control ml-3" [(ngModel)]="nombre" required>
+    </div>
+    <div *ngIf="formEnviado && !nombre" class="text-danger">Introduzca su nombre y apellido</div>
+  </div>
+  <div class="form-group">
+    <div class="d-flex">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control ml-3" [(ngModel)]="email">
+    </div>
+    <div *ngIf="formEnviado && !email" class="text-danger">Introduzca su Email</div>
+  </div>
+  <div class="form-group">
+    <div class="d-flex">
+      <label for="mensaje">Mensaje:</label>
+      <textarea class="form-control ml-3" id="mensaje" [(ngModel)]="mensaje"></textarea>
+    </div>
+    <div *ngIf="formEnviado && !mensaje" class="text-danger">Introduzca un mensaje </div>
+  </div>
+  <div class="form-group">
+    <div class="d-flex">
+      <div for="suma">Suma {{ num1 }} + {{ num2 }}:</div>
+      <div class="input-group">
+        <input type="text" class="form-control ml-3" [(ngModel)]="suma">
+      </div>
+    </div>
+    <div *ngIf="formEnviado && !sumCorrect" class="text-danger">Validacion anti-spam incorrecta.</div>
+  </div>
+  <button type="submit" (click)="sendForm()" class="btn btn-primary">Guardar</button>
+</div>
+
+<app-view [data]="usuario"></app-view>

@@ -1,0 +1,12 @@
+<h2>Lista de Tareas</h2>
+
+<div *ngIf="tareas.length === 0">
+  No hay tareas por hacer.
+</div>
+
+<div *ngFor="let tarea of tareas; let i = index" [ngClass]="{ 'completada': tarea.completada }">
+  <h3>{{ tarea.titulo }}</h3>
+  <p>{{ tarea.descripcion }}</p>
+  <button (click)="changeC(i)">Completada</button>
+  <button (click)="delete(i)">Eliminar</button>
+</div>

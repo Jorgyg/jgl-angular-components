@@ -1,0 +1,50 @@
+<table>
+  <tr>
+      <th>Codigo</th>
+      <th>Descripcion</th>
+      <th>Precio</th>
+      <th>Borrar</th>
+      <th>Selecionar</th>
+  </tr>
+  <tr *ngFor="let product of products">
+      <td>{{product.codigo}}</td>
+      <td>{{product.descripcion}}</td>
+      <td>{{product.precio}}</td>
+      <td><button type="submit" (click)="deleteProduct(product.codigo)">Borrar?</button></td>
+      <td><button type="submit" (click)="selectProduct(product.codigo)">Seleccionar</button></td>
+  </tr>
+</table>
+
+<div *ngIf="!select">
+  <div class="form">
+    <label for="Codigo">Codigo: </label>
+    <input type="number"  [(ngModel)]="codigo" required>
+  </div>
+  <div class="form">
+    <label for="Descripcion">Descripcion: </label>
+    <input type="text" [(ngModel)]="descripcion" required>
+  </div>
+  <div class="form">
+    <label for="Precio">Precio: </label>
+    <input type="number" [(ngModel)]="precio" required>
+  </div>
+  <button class="form" type="submit" (click)="addProduct()">Guardar</button>
+</div>
+
+<div *ngIf="select">
+  <div class="form">
+    <label for="Codigo"> Codigo: </label>
+    <input type="number"  [(ngModel)]="codigo" placeholder="{{ codigo }}" required>
+  </div>
+  <div class="form">
+    <label for="Descripcion">Descripcion: </label>
+    <input type="text" [(ngModel)]="descripcion" placeholder="{{ descripcion }}" required>
+  </div>
+  <div class="form">
+    <label for="Precio">Precio: </label>
+    <input type="number" [(ngModel)]="precio" placeholder="{{ precio }}" required>
+  </div>
+  <button class="form" type="submit" (click)="changeProduct(oldCode)">Cambiar</button>
+</div>
+
+
